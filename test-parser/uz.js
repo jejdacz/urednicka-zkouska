@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// blabla
 const fs = require('fs');
 
 const data = fs.readFileSync(__dirname + '/uz-nl.txt', {
