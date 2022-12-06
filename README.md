@@ -1,1 +1,1 @@
-# Repozitář pro deployment aplikace na procvičování testu na Úřednickou zkoušku
+# Aplikace pro přípravu na test z obecné části Úřednické zkoušky.

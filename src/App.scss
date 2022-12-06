@@ -1,0 +1,157 @@
+$secondary-color: #c6daf1;
+$secondary-color-light: lighten($secondary-color, 7);
+$primary-color: #26303a;
+$space: 1.5rem;
+$max-width: 47rem;
+
+body {
+  background-color: $secondary-color;
+}
+
+.app {
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: $max-width;
+  padding: $space;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+  color: $primary-color;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: $secondary-color-light;
+  //cursor: pointer;
+  user-select: none;
+
+  &.primary {
+    color: $secondary-color-light;
+    background-color: $primary-color;
+  }
+}
+
+.question-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  &.going-next {
+    animation: fade 0.6s;
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 0;
+  }
+}
+
+.status-bar {
+  font-size: 0.7rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: transparentize($secondary-color, 0.1);
+
+  .wrapper {
+    display: flex;
+    padding: 0.5rem $space;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    max-width: $max-width;
+    margin: 0 auto;
+
+    .button {
+      padding: 0.5rem;
+    }
+
+    * + * {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .button {
+    font-size: 18px;
+    padding: 1rem;
+  }
+
+  .button + .button {
+    margin-left: $space;
+  }
+}
+
+.question {
+  margin-top: 10vh;
+  margin-bottom: $space;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  word-spacing: 0.2em;
+}
+
+.answer {
+  margin-bottom: $space;
+  word-spacing: 0.2em;
+  padding: 0.85rem;
+
+  &.selected {
+    &.invalid {
+      animation: wrong 0.2s forwards;
+    }
+    &.valid {
+      animation: right 0.2s forwards;
+    }
+  }
+}
+
+@keyframes wrong {
+  100% {
+    background-color: #ee7aa0;
+  }
+}
+
+@keyframes right {
+  100% {
+    background-color: #73e26c;
+  }
+}
+
+.victory-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .sign {
+    margin: 0;
+    font-size: 3rem;
+    animation: victory 3s infinite;
+  }
+}
+
+@keyframes victory {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.9) rotate(-15deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
